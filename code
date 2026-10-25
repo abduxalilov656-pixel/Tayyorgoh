@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tayyorgoh — imtihonga tayyorlanish</title>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F2F5FB;--sf:#fff;--ink:#14213D;--mut:#5B6785;--ac:#2F5BFF;--ok:#1B9A6C;--bad:#D6453D;--ln:#DCE2F0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1527;--sf:#18203A;--ink:#EEF1FA;--mut:#9AA6C6;--ac:#6F8CFF;--ok:#3CC794;--bad:#FF7A72;--ln:#2A3556}}
+:root[data-theme="dark"]{--bg:#0F1527;--sf:#18203A;--ink:#EEF1FA;--mut:#9AA6C6;--ac:#6F8CFF;--ok:#3CC794;--bad:#FF7A72;--ln:#2A3556}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Onest,system-ui,sans-serif}
+.w{max-width:960px;margin:0 auto;padding:0 18px}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+.logo{font-weight:800;font-size:20px}.logo b{color:var(--ac)}
+nav a{color:var(--mut);text-decoration:none;margin-left:16px;font-size:14px}
+h1{font-size:clamp(30px,6vw,52px);line-height:1.08;margin:28px 0 12px;font-weight:800;max-width:15ch}
+.lead{color:var(--mut);max-width:46ch;margin:0 0 24px}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px}
+button:focus-visible,a:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.btn{background:var(--ac);color:#fff;padding:12px 20px;font-weight:600}
+.panel{background:var(--sf);border:1px solid var(--ln);border-radius:16px;padding:20px;margin:20px 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{background:var(--bg);color:var(--ink);padding:8px 14px;border:1px solid var(--ln)}
+.tab[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.q{font-size:20px;font-weight:600;margin:6px 0 14px}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--ln);padding:12px 14px;margin:8px 0;border-radius:10px}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 16%,var(--sf))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,var(--sf))}
+.bar{height:8px;background:var(--ln);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .3s}
+.row{display:flex;justify-content:space-between;color:var(--mut);font-size:14px;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.grid .panel{margin:0}.grid h3{margin:0 0 4px;font-size:17px}.grid p{margin:0;color:var(--mut);font-size:14px}
+h2{font-size:24px;margin:36px 0 12px}
+.les h3{margin:18px 0 6px;font-size:17px}.les p,.les li{max-width:62ch}.les ul{padding-left:20px;margin:6px 0}.les .ex{background:var(--bg);border-left:4px solid var(--ac);padding:8px 12px;margin:8px 0;border-radius:0 8px 8px 0}.les .no{color:var(--bad)}.les .yes{color:var(--ok)}.sc{overflow-x:auto}.les table{border-collapse:collapse;min-width:480px;width:100%;font-size:14px}.les th,.les td{border:1px solid var(--ln);padding:8px 10px;text-align:left}.les th{background:var(--bg)}
+.ov{position:fixed;inset:0;background:var(--bg);z-index:50;overflow:auto;padding:calc(env(safe-area-inset-top,0px) + 28px) 18px 28px}.ov>div{max-width:520px;margin:0 auto}.bands{display:grid;grid-template-columns:1fr 1fr;gap:10px}.bands .opt{text-align:center;font-size:26px;font-weight:800;padding:22px 0}textarea,#ti{width:100%;font:inherit;color:var(--ink);background:var(--sf);border:1px solid var(--ln);border-radius:10px;padding:12px}.chat{max-height:440px;overflow:auto;display:flex;flex-direction:column;gap:10px;margin:10px 0}.m{padding:10px 14px;border-radius:12px;white-space:pre-wrap;max-width:90%}.m.a{background:var(--bg);border:1px solid var(--ln)}.m.u{background:var(--ac);color:#fff;align-self:flex-end}.send{display:flex;gap:8px}.send[hidden]{display:none}.plan{white-space:pre-wrap;margin:12px 0}
+header{flex-wrap:wrap;gap:8px}nav{display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+footer{color:var(--mut);font-size:13px;padding:30px 0 40px}
+</style>
+</head>
+<body>
+<div class="w">
+<header><div class="logo">Tayyor<b>goh</b></div><nav><button class="btn" id="wb" style="padding:8px 16px">Soʻz</button><button class="btn" id="cb" style="padding:8px 16px;margin-left:8px">Soʻz yaratish</button><a href="#ustoz">AI ustoz</a><a href="#darslik">Darslik</a><a href="#test">Test</a><a href="#fanlar">Fanlar</a><a href="#natija">Natijam</a></nav></header>
+<h1>Imtihonga tayyorlaning, har kuni.</h1>
+<p class="lead">Fan tanlang, savollarga javob bering va natijangiz qanday oʻsayotganini kuzating.</p>
+
+<section id="test" class="panel" aria-live="polite">
+<div class="tabs" id="tabs"></div>
+<div id="quiz"></div>
+</section>
+
+<h2 id="ustoz">AI ustoz</h2>
+<section class="panel">
+<div class="row"><span id="goal"></span><button class="tab" id="rs">Qayta sozlash</button></div>
+<div class="tabs" id="mt"><button class="tab" data-m="g" aria-pressed="true">Grammatika savollari</button><button class="tab" data-m="e" aria-pressed="false">IELTS imtihon savollari</button></div>
+<div id="chat" class="chat" aria-live="polite"></div>
+<div class="send" id="cin" hidden><input id="ti" placeholder="Javobingizni yozing" aria-label="Xabar"><button class="btn" id="ts">Yuborish</button></div>
+<button class="btn" id="tstart">Darsni boshlash</button>
+</section>
+
+<h2 id="darslik">Ingliz tili darsliklari</h2>
+<section class="panel les">
+<div class="tabs" id="ltabs"></div>
+<div id="lesson"></div>
+</section>
+
+<h2 id="fanlar">Fanlar</h2>
+<div class="grid" id="subj"></div>
+
+<h2 id="natija">Natijam</h2>
+<div class="panel" id="stats"></div>
+
+<footer>Tayyorgoh — namunaviy sayt. Savollar misol uchun berilgan.</footer>
+<div class="ov" id="co" hidden><div><div class="row"><h2 style="margin:0">Soʻz yaratish</h2><button class="tab" id="cx">Yopish</button></div><p class="lead">Oʻzbekcha gapni inglizchaga tarjima qiling.</p><div class="panel"><div class="row"><span>Tarjima qiling:</span><span id="cs"></span></div><div class="q" id="cu" style="font-size:22px"></div><textarea id="ca" rows="2" aria-label="Inglizcha tarjima"></textarea><p id="cf" class="plan" aria-live="polite" style="min-height:1.6em"></p><div class="send"><button class="btn" id="cc">Tekshirish</button><button class="tab" id="cn">AI yangi gap</button></div></div></div></div>
+<div class="ov" id="wo" hidden><div><div class="row"><h2 style="margin:0">Soʻzlar</h2><button class="tab" id="wx">Yopish</button></div><p class="lead">Inglizcha soʻzni oʻzbekchaga tarjima qiling.</p><div class="panel"><div class="row"><span id="ws"></span><span id="wst"></span></div><div class="q" id="ww" style="font-size:34px;font-weight:800"></div><input id="wi" aria-label="Tarjima" placeholder="Oʻzbekcha tarjimasi" autocomplete="off"><p id="wf" aria-live="polite" style="min-height:1.6em"></p><div class="send"><button class="btn" id="wc">Tekshirish</button><button class="tab" id="wn">Oʻtkazish</button></div></div></div></div>
+<div class="ov" id="ob" hidden><div></div></div>
+</div>
+<script>
+const D={
+"Matematika":[["200 ning 15% i nechiga teng?",["20","30","35","40"],1],["x² = 49 va x > 0 boʻlsa, x nechiga teng?",["5","6","7","9"],2],["3x + 5 = 20 tenglamada x nechiga teng?",["3","5","6","15"],1]],
+"Ingliz tili":[["She ___ to school every day.",["go","goes","going","gone"],1],["“buy” fe’lining oʻtgan zamon shakli qaysi?",["buyed","boughted","bought","buys"],2],["I have lived here ___ 2020.",["for","since","from","at"],1],["He ___ watch TV in the morning. (inkor)",["don’t","doesn’t","isn’t","didn’t"],1],["She ___ her homework yesterday.",["do","does","did","doing"],2],["Did you ___ the film last night?",["saw","see","seen","sees"],1],["My sister ___ English very well.",["speak","speaks","speaking","spoke"],1]],
+"Fizika":[["Tezlikning SI dagi birligi qaysi?",["km/soat","m/s","m/s²","N"],1],["Massasi 2 kg jism 3 m/s² tezlanish bilan harakatlansa, kuch nechiga teng?",["1,5 N","5 N","6 N","9 N"],2],["Suv normal bosimda necha °C da qaynaydi?",["90","100","110","120"],1]],
+"Tarix":[["Amir Temur qaysi yilda tugʻilgan?",["1336","1370","1405","1220"],0],["Oʻzbekiston mustaqilligi qaysi yilda eʻlon qilingan?",["1989","1990","1991","1992"],2],["Ulugʻbek rasadxonasi qaysi shaharda qurilgan?",["Buxoro","Xiva","Samarqand","Toshkent"],2]]
+};
+let cur=Object.keys(D)[0],i=0,sc=0,done=false;
+let H={};try{H=JSON.parse(localStorage.getItem("tg")||"{}")}catch(e){}
+function save(){try{localStorage.setItem("tg",JSON.stringify(H))}catch(e){}}
+const $=s=>document.querySelector(s);
+function tabs(){$("#tabs").innerHTML=Object.keys(D).map(k=>`<button class="tab" aria-pressed="${k==cur}" data-k="${k}">${k}</button>`).join("");
+$("#tabs").onclick=e=>{const k=e.target.dataset.k;if(k){cur=k;i=0;sc=0;done=false;tabs();quiz()}}}
+function quiz(){const Q=D[cur],el=$("#quiz");
+if(i>=Q.length){(H[cur]=H[cur]||[]).push(sc);save();stats();
+el.innerHTML=`<div class="q">${cur}: ${Q.length} tadan ${sc} ta toʻgʻri</div><p class="lead">${sc==Q.length?"Zoʻr natija!":"Xatolarni qayta koʻrib chiqing va yana urining."}</p><button class="btn" id="re">Qayta boshlash</button>`;
+$("#re").onclick=()=>{i=0;sc=0;quiz()};return}
+const q=Q[i];done=false;
+el.innerHTML=`<div class="row"><span>Savol ${i+1} / ${Q.length}</span><span>${sc} ta toʻgʻri</span></div><div class="bar"><i style="width:${i/Q.length*100}%"></i></div><div class="q">${q[0]}</div>`+q[1].map((o,n)=>`<button class="opt" data-n="${n}">${o}</button>`).join("")+`<button class="btn" id="nx" hidden>Keyingisi</button>`;
+el.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{if(done)return;done=true;const n=+b.dataset.n;
+el.querySelectorAll(".opt")[q[2]].classList.add("ok");if(n==q[2])sc++;else b.classList.add("bad");$("#nx").hidden=false;$("#nx").focus()});
+$("#nx").onclick=()=>{i++;quiz()}}
+function subj(){$("#subj").innerHTML=Object.keys(D).map(k=>`<div class="panel"><h3>${k}</h3><p>${D[k].length} ta savol</p></div>`).join("")}
+function stats(){const ks=Object.keys(D);$("#stats").innerHTML=ks.map(k=>{const a=H[k]||[],n=D[k].length,b=a.length?Math.round(Math.max(...a)/n*100):0;
+return `<div class="row"><span>${k}</span><span>${a.length?`${a.length} urinish · eng yaxshi ${b}%`:"hali yechilmagan"}</span></div><div class="bar" style="margin-bottom:14px"><i style="width:${b}%"></i></div>`}).join("")}
+const LS={
+"Present Simple":`<h3>Qachon ishlatiladi?</h3><ul><li>Odat va takrorlanuvchi harakat.<div class="ex">I play football every day. <br><small>Men har kuni futbol oʻynayman.</small></div></li><li>Umumiy haqiqat.<div class="ex">Water boils at 100°C. <br><small>Suv 100°C da qaynaydi.</small></div></li><li>Jadval va reja.<div class="ex">The train leaves at 8. <br><small>Poyezd soat 8 da joʻnaydi.</small></div></li></ul>
+<h3>Shakli</h3><div class="sc"><table><tr><th></th><th>I / You / We / They</th><th>He / She / It</th></tr><tr><td>Tasdiq</td><td>I work</td><td>He work<b>s</b></td></tr><tr><td>Inkor</td><td>I <b>do not (don’t)</b> work</td><td>He <b>does not (doesn’t)</b> work</td></tr><tr><td>Soʻroq</td><td><b>Do</b> you work?</td><td><b>Does</b> he work?</td></tr></table></div>
+<h3>He / She / It bilan fe’lga -s qoʻshiladi</h3><ul><li>Oddiy fe’llar: work → work<b>s</b>, play → play<b>s</b></li><li>-s, -sh, -ch, -x, -o bilan tugasa: -<b>es</b>: watch → watch<b>es</b>, go → go<b>es</b></li><li>Undosh + y bilan tugasa: y → <b>ies</b>: study → stud<b>ies</b></li></ul>
+<p><span class="no">She doesn’t works.</span> <span class="yes">She doesn’t work.</span> Does yoki doesn’t boʻlsa, fe’l -s olmaydi.</p>
+<h3>Belgilovchi soʻzlar</h3><p>always, usually, often, sometimes, never, every day, on Mondays</p>`,
+"Past Simple":`<h3>Qachon ishlatiladi?</h3><ul><li>Oʻtmishda tugagan harakat.<div class="ex">I visited my grandmother yesterday. <br><small>Men kecha buvimnikiga bordim.</small></div></li><li>Oʻtmishdagi ketma-ket harakatlar.<div class="ex">He came, saw and left. <br><small>U keldi, koʻrdi va ketdi.</small></div></li></ul>
+<h3>Shakli</h3><div class="sc"><table><tr><th></th><th>Barcha shaxslar (I, you, he, we, they)</th></tr><tr><td>Tasdiq</td><td>I work<b>ed</b> / I <b>went</b></td></tr><tr><td>Inkor</td><td>I <b>did not (didn’t)</b> work</td></tr><tr><td>Soʻroq</td><td><b>Did</b> you work?</td></tr></table></div>
+<h3>Toʻgʻri fe’llar: -ed qoʻshiladi</h3><ul><li>Oddiy: work → work<b>ed</b></li><li>-e bilan tugasa: like → like<b>d</b></li><li>Undosh + y: study → stud<b>ied</b></li><li>Qisqa fe’l, oxirgi undosh ikkilanadi: stop → sto<b>pped</b></li></ul>
+<h3>Notoʻgʻri fe’llar: yodlash kerak</h3><div class="sc"><table><tr><th>Hozir</th><th>Oʻtgan</th><th>Hozir</th><th>Oʻtgan</th></tr><tr><td>go</td><td>went</td><td>buy</td><td>bought</td></tr><tr><td>see</td><td>saw</td><td>have</td><td>had</td></tr><tr><td>eat</td><td>ate</td><td>take</td><td>took</td></tr><tr><td>write</td><td>wrote</td><td>come</td><td>came</td></tr></table></div>
+<p><span class="no">Did she went?</span> <span class="yes">Did she go?</span> Did bor joyda fe’l asosiy shaklda turadi.</p>
+<h3>Belgilovchi soʻzlar</h3><p>yesterday, last week, two days ago, in 2020, when I was a child</p>`};
+let lc="Present Simple";
+function lessons(){$("#ltabs").innerHTML=Object.keys(LS).map(k=>`<button class="tab" aria-pressed="${k==lc}" data-k="${k}">${k}</button>`).join("");$("#lesson").innerHTML=LS[lc]}
+$("#ltabs").onclick=e=>{const k=e.target.dataset.k;if(k){lc=k;lessons()}};
+lessons();
+let P=null,T={},CH=[],S=null;try{P=JSON.parse(localStorage.getItem("tgp")||"null")}catch(e){}
+function sp(){try{localStorage.setItem("tgp",JSON.stringify(P))}catch(e){}}
+async function ai(msgs,on){if(!S){try{S=await window.claude.use("sample")}catch(e){}}
+if(!S)throw new Error("na");return S(msgs,{onText:o=>on&&on(o.text),cache:false})}
+const OB=$("#ob");
+function ob1(){OB.hidden=false;OB.firstElementChild.innerHTML=`<h2>Qaysi IELTS balliga tayyorlanmoqchisiz?</h2><div class="bands">${["6.5","7.5","8.5","9"].map(b=>`<button class="opt" data-b="${b}">${b}</button>`).join("")}</div>`;
+OB.querySelectorAll("[data-b]").forEach(b=>b.onclick=()=>{T.band=b.dataset.b;ob2()})}
+function ob2(){OB.firstElementChild.innerHTML=`<h2>Ballni qachongacha olishni xohlaysiz?</h2><p class="lead">Xohlagan muddatingizni oʻzingiz yozing, masalan: “3 oyda” yoki “1-martgacha”.</p><textarea id="tw" rows="3" aria-label="Muddat"></textarea><p><button class="btn" id="tn">Davom etish</button></p>`;
+$("#tn").onclick=()=>{const v=$("#tw").value.trim();if(v){T.when=v;ob3()}}}
+async function ob3(){OB.firstElementChild.innerHTML=`<h2>AI sizga reja tuzmoqda</h2><div class="plan" id="pl">…</div><button class="btn" id="go" hidden>Ustoz bilan darsni boshlash</button>`;let plan="";
+try{const r=await ai([{role:"user",content:`Sen IELTS ustozisan. Oʻzbek tilida yoz. Oʻquvchi maqsadi: IELTS ${T.band}. Muddat haqida u shunday yozdi: "${T.when}". Qisqa shaxsiy reja tuz: haftalar boʻyicha 5-7 qator, haftada necha soat shugʻullanish kerakligi bilan. Oxirida bir gap yoz: reja tugagach ustoz fe’llar, soʻroq gaplar va soʻz ma’nolari boʻyicha savollar berib boshlaydi.`}],t=>{$("#pl").textContent=t});plan=r.text}
+catch(e){$("#pl").textContent="AI hozir reja tuza olmadi. Baribir ustoz bilan darsni boshlashingiz mumkin."}
+$("#go").hidden=false;$("#go").onclick=()=>{P={band:T.band,when:T.when,plan};sp();OB.hidden=true;goal();$("#ustoz").scrollIntoView()}}
+function goal(){$("#goal").textContent=P?`Maqsad: IELTS ${P.band} · Muddat: ${P.when}`:""}
+function sysE(){return `Sen IELTS boʻyicha tajribali ustozsan, oʻzbek oʻquvchi bilan ishlaysan. Maqsad: IELTS ${P.band}; muddat: "${P.when}". Oʻquvchiga haqiqiy IELTS imtihonida tushadigan turdagi savollarni ber: Reading (True/False/Not Given, Matching Headings, gap-fill, multiple choice; 3-4 gaplik qisqa matn bilan), Listening (audio boʻlmagani uchun transkript matn koʻrinishida), Writing (Task 1 grafik yoki jadval tavsifi, Task 2 esse) va Speaking (Part 1, 2, 3). Bir vaqtda bitta vazifa ber, turlarni almashtirib tur. Oʻquvchi javob bergach: toʻgʻri javobni ayt, nega shunday ekanini bosqichma-bosqich tushuntir va imtihonda shunday savolni yechish strategiyasini (kalit soʻzlarni topish, tuzoqlar, vaqtni taqsimlash) koʻrsat. Writing va Speaking javobini IELTS mezonlari (Task Response, Coherence and Cohesion, Lexical Resource, Grammatical Range and Accuracy) boʻyicha baholab, IELTS ${P.band} darajasidagi namunaviy javob yoz. Qiyinlik IELTS ${P.band} ga mos boʻlsin. Tushuntirishni oʻzbek tilida yoz, savollar va namunalar inglizcha, javob 14 qatordan oshmasin. Aniq ma’lumot ber, bilmasang shuni ayt.`}
+function sys(){return MODE=="e"?sysE():sysG()}
+function sysG(){return `Sen IELTS ustozisan, oʻzbek oʻquvchi bilan ishlaysan. Oʻquvchi maqsadi: IELTS ${P.band}; muddati: "${P.when}". Uning rejasi: ${(P.plan||"").slice(0,600)}. Sen oʻquvchiga faqat ingliz tilidan savol berasan: fe’llar (zamonlar, shakllari, notoʻgʻri fe’llar), soʻroq gaplar tuzish va soʻz ma’nolari (sinonim, kollokatsiya, kontekstdagi ma’no). Bir vaqtda faqat bitta savol ber. Savol qiyinligi IELTS ${P.band} ga mos boʻlsin: 6.5 uchun B2, 7.5 uchun C1, 8.5 va 9 uchun C1-C2 (murakkab zamonlar, inversiya, shartli gaplar, nozik ma’no farqlari, idiomalar). Javob toʻgʻri boʻlsa, keyingi savolni biroz qiyinroq qil. Xato boʻlsa, aniq sababini va qoidasini tushuntir, soʻng shunga oʻxshash yana bitta savol ber. Oʻquvchi oʻzi savol bersa, aniq, toʻliq va chuqur javob ber: qoida, istisnolar, IELTS Writing va Speaking’da qoʻllanishi, IELTS ${P.band} darajasidagi misollar. Tushuntirishni oʻzbek tilida yoz, misollar inglizcha, javob 12 qatordan oshmasin. Umumiy gaplar emas, aniq ma’lumot ber; bilmasang, shuni ayt. Maqsad: oʻquvchini aynan IELTS ${P.band} darajasiga yetkazish.`}
+function add(role,t){const d=document.createElement("div");d.className="m "+role;d.textContent=t;$("#chat").appendChild(d);d.scrollIntoView({block:"nearest"});return d}
+async function turn(text){CH.push({role:"user",content:text});add("u",text);const el=add("a","…");
+const msgs=CH.map((m,i)=>i==0?{role:"user",content:sys()+"\n\n"+m.content}:m);
+try{const r=await ai(msgs,t=>{el.textContent=t});CH.push({role:"assistant",content:r.text});el.textContent=r.text}
+catch(e){el.textContent="AI ustoz hozir javob bera olmadi. Xabarni qayta yuboring.";CH.pop()}}
+function send(){const v=$("#ti").value.trim();if(!v)return;$("#ti").value="";turn(v)}
+$("#tstart").onclick=()=>{if(!P){ob1();return}$("#tstart").hidden=true;$("#cin").hidden=false;start()};
+$("#ts").onclick=send;$("#ti").onkeydown=e=>{if(e.key=="Enter")send()};
+$("#rs").onclick=()=>{P=null;T={};CH=[];try{localStorage.removeItem("tgp")}catch(e){}$("#chat").innerHTML="";$("#cin").hidden=true;$("#tstart").hidden=false;goal();ob1()};
+let MODE="g";
+function start(){turn(MODE=="e"?"Boshlaymiz. IELTS imtihonidagi birinchi savolni ber.":"Boshlaymiz. Birinchi savolingni ber.")}
+$("#mt").onclick=e=>{const m=e.target.dataset.m;if(!m||m==MODE)return;MODE=m;CH=[];$("#chat").innerHTML="";document.querySelectorAll("#mt .tab").forEach(b=>b.setAttribute("aria-pressed",b.dataset.m==m));if(!$("#cin").hidden)start()};
+const W=[["tea","choy"],["water","suv"],["bread","non"],["milk","sut"],["book","kitob"],["house","uy"],["city","shahar"],["friend","doʻst"],["family","oila"],["school","maktab"],["teacher","oʻqituvchi|ustoz"],["student","talaba|oʻquvchi"],["food","ovqat|taom"],["weather","ob-havo"],["travel","sayohat"],["environment","atrof-muhit|muhit"],["education","taʼlim"],["health","sogʻliq|salomatlik"],["society","jamiyat"],["government","hukumat"],["economy","iqtisodiyot"],["technology","texnologiya"],["advantage","afzallik|ustunlik"],["disadvantage","kamchilik"],["increase","oshish|koʻpayish|oshmoq"],["decrease","kamayish|kamaymoq"],["benefit","foyda"],["improve","yaxshilamoq
